@@ -1,0 +1,20 @@
+$(document).ready(function(){
+    $("#like").click(function(){
+    if($("#dislike").hasClass("text-danger")){
+    		$("#like").removeClass("text-success");	
+    	}
+    	else{
+        $("#like").addClass("text-success");
+        $("#dislike").removeClass("text-danger");
+        }
+    });
+    $("#dislike").click(function(){
+    	if($("#dislike").hasClass("text-danger")){
+    		$("#dislike").removeClass("text-danger");	
+    	}
+    	else{
+	        $("#like").removeClass("text-success");
+	        $("#dislike").addClass("text-danger");
+        }
+    });
+});
