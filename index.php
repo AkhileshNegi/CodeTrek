@@ -24,7 +24,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a href="index.html" class="nav-link">Questions</a>
+						<a href="index.php" class="nav-link">Questions</a>
 					</li>
 				</ul>
 				<ul class="navbar-nav">
@@ -36,7 +36,7 @@
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<div class="dropdown-item disabled">Akhilesh Negi</div>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="profile.html">My Profile</a>
+							<a class="dropdown-item" href="profile.php">My Profile</a>
 							<a class="dropdown-item" href="#">Settings</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#">Sign out</a>
@@ -60,13 +60,13 @@
 						</div>
 					</div>
 				</form>
-				<a class="btn btn-outline-primary" href="new-question.html">Ask question</a>
+				<a class="btn btn-outline-primary" href="new-question.php">Ask question</a>
 			</div>
 
 		</div>
 		<div class="card mb-4 shadow-sm">
 			<div class="card-body">
-				<h4 class="card-title mb-1"><a class="text-body" href="answers.html">How do I use Git and GitHub?</a></h4>
+				<h4 class="card-title mb-1"><a class="text-body" href="answers.php">How do I use Git and GitHub?</a></h4>
 				<p class="text-secondary mb-0">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum suscipit perspiciatis fuga laudantium dignissimos non recusandae id ducimus nobis dolores fugit, ipsa laboriosam eum exercitationem nesciunt laborum...
 				</p>
