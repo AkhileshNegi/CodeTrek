@@ -1,3 +1,11 @@
+<?php
+$conn = new mysqli('localhost', 'root', '', 'quean');
+if ($conn->connect_error){
+	die("Connection failed: " . $conn->connect_error);
+}
+$sql = "SELECT title, description, links FROM questions";
+$questions = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,137 +70,50 @@
 				</form>
 				<a class="btn btn-outline-primary" href="new-question.php">Ask question</a>
 			</div>
-
 		</div>
-		<div class="card mb-4 shadow-sm">
-			<div class="card-body">
-				<h4 class="card-title mb-1"><a class="text-body" href="answers.php">How do I use Git and GitHub?</a></h4>
-				<p class="text-secondary mb-0">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum suscipit perspiciatis fuga laudantium dignissimos non recusandae id ducimus nobis dolores fugit, ipsa laboriosam eum exercitationem nesciunt laborum...
-				</p>
-				<div class="mb-2">
-					<a href="#" class="badge badge-info">git</a>
-					<a href="#" class="badge badge-info">github</a>
-					<a href="#" class="badge badge-info">vcs</a>
-				</div>
-				<p>
-					<a href="#" class="card-link"><small>Abhishek Pokhriyal</small></a>
-					<small class="text-secondary">asked on</small>
-					<small class="text-secondary">Sep 27, 2018</small>
-				</p>
-				<div class="d-flex text-secondary">
-					<div class="mr-3">
-						<i class="far fa-thumbs-up"></i>
-						<small>14</small>
-					</div>
-					<div class="mr-3">
-						<i class="far fa-thumbs-down"></i>
-						<small>1</small>
-					</div>
-					<div class="mr-3">
-						<i class="far fa-comments"></i>
-						<a href="answers.html" class="text-secondary"><small>2 answers</small></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="card mb-4 shadow-sm">
-			<div class="card-body">
-				<h4 class="card-title mb-1"><a class="text-body" href="#">How do I install Bootstrap4?</a></h4>
-				<p class="text-secondary mb-0">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis eaque delectus suscipit veniam provident architecto nobis nisi corrupti rem deleniti? Quas, sequi nobis. Voluptate, magnam...
-				</p>
-				<div class="mb-2">
-					<a href="#" class="badge badge-info">bootstrap</a>
-					<a href="#" class="badge badge-info">frontend</a>
-				</div>
-				<p>
-					<a href="#" class="card-link"><small>Vikas Rinvi</small></a>
-					<small class="text-secondary">asked on</small>
-					<small class="text-secondary">Sep 26, 2018</small>
-				</p>
-				<div class="d-flex text-secondary">
-					<div class="mr-3">
-						<i class="far fa-thumbs-up"></i>
-						<small>20</small>
-					</div>
-					<div  class="mr-3">
-						<i class="far fa-thumbs-down"></i>
-						<small>5</small>
-					</div>
-					<div class="mr-3">
-						<i class="far fa-comments"></i>
-						<a href="#" class="text-secondary"><small>6 answers</small></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="card mb-4 shadow-sm">
-			<div class="card-body">
-				<h4 class="card-title mb-1"><a class="text-body" href="#">What is FontAwesome? Where can I install them?</a></h4>
-				<p class="text-secondary mb-0">
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem odio temporibus unde corrupti? Mollitia consequatur, nobis aliquid ex natus exercitationem vel sit rem in voluptatum consectetur ad commodi ipsam sunt...
-				</p>
-				<div class="mb-2">
-					<a href="#" class="badge badge-info">fontawesome</a>
-					<a href="#" class="badge badge-info">icons</a>
-					<a href="#" class="badge badge-info">frontend</a>
-				</div>
-				<p>
-					<a href="#" class="card-link"><small>Satendra Rawat</small></a>
-					<small class="text-secondary">asked on</small>
-					<small class="text-secondary">Sep 25, 2018</small>
-				</p>
-				<div class="d-flex text-secondary">
-					<div class="mr-3">
-						<i class="far fa-thumbs-up"></i>
-						<small>10</small>
-					</div>
-					<div class="mr-3">
-						<i class="far fa-thumbs-down"></i>
-						<small>15</small>
-					</div>
-					<div class="mr-3">
-						<i class="far fa-comments"></i>
-						<a href="#" class="text-secondary"><small>2 answers</small></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="card mb-4 shadow-sm">
-			<div class="card-body">
-				<h4 class="card-title mb-1"><a class="text-body" href="#">How do I push my HTML code to GitHub repository?</a></h4>
-				<p class="text-secondary mb-0">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, vitae nostrum natus et aspernatur at consectetur nesciunt itaque vel asperiores blanditiis quas fugit, veritatis adipisci? Nulla nisi fugiat sunt sed...
-				</p>
-				<div class="mb-2">
-					<a href="#" class="badge badge-info">git</a>
-					<a href="#" class="badge badge-info">github</a>
-					<a href="#" class="badge badge-info">frontend</a>
-				</div>
-				<p>
-					<a href="#" class="card-link"><small>Mohit Gusain</small></a>
-					<small class="text-secondary">asked on</small>
-					<small class="text-secondary">Sep 25, 2018</small>
-				</p>
-				<div class="d-flex text-secondary">
-					<div class="mr-3">
-						<i class="far fa-thumbs-up"></i>
-						<small>22</small>
-					</div>
-					<div class="mr-3">
-						<i class="far fa-thumbs-down"></i>
-						<small>8</small>
-					</div>
-					<div class="mr-3">
-						<i class="far fa-comments"></i>
-						<a href="#" class="text-secondary"><small>10 answers</small></a>
-					</div>
-				</div>
-			</div>
-		</div>
+<?php
+if ($questions->num_rows > 0) {
+	while($question = $questions->fetch_assoc()) {
+		echo '<div class="card mb-4 shadow-sm">';
+		echo '<div class="card-body">';
+		echo '<h4 class="card-title mb-1">';
+		echo '<a class="text-body" href="#">'.$question["title"].'</a>';
+		echo '</h4>';
+		echo '<p class="text-secondary mb-0">';
+		echo $question["description"];
+		echo '</p>';
+		echo '<div class="mb-2">';
+		echo '<a href="#" class="badge badge-info">'.$question["links"].'</a>';
+		echo '</div>';
+		echo '<p>';
+		echo '<a href="#" class="card-link"><small>Mohit Gusain</small></a>';
+		echo '<small class="text-secondary">asked on</small>';
+		echo '<small class="text-secondary">Sep 25, 2018</small>';
+		echo '</p>';
+		echo '<div class="d-flex text-secondary">';
+		echo '<div class="mr-3">';
+		echo '<i class="far fa-thumbs-up"></i>';
+		echo '<small>22</small>';
+		echo '</div>';
+		echo '<div class="mr-3">';
+		echo '<i class="far fa-thumbs-down"></i>';
+		echo '<small>8</small>';
+		echo '</div>';
+		echo '<div class="mr-3">';
+		echo '<i class="far fa-comments"></i>';
+		echo '<a href="#" class="text-secondary"><small>10 answers</small></a>';
+		echo '</div>';
+		echo '</div>';
+		echo '</div>';
+		echo '</div>';
+	}
+} else {
+	echo "<h4>No questions are asked</h4>";
+}
+$conn->close();
+?>
 	</div>
-	<footer class="bg-light py-3 text-center mt-5">
+	<footer class="bg-light py-3 text-center mt-1">
 		<span class="text-primary"><i class="fas fa-code"></i> Developed at CodeTrek Tehri 2018</span>
 	</footer>
 </body>
