@@ -77,7 +77,7 @@ if ($questions->num_rows > 0) {
 		echo '<div class="card mb-4 shadow-sm">';
 		echo '<div class="card-body">';
 		echo '<h4 class="card-title mb-1">';
-		echo '<a class="text-body" href="#">'.$question["title"].'</a>';
+		echo '<a class="text-body" href="answers.php">'.$question["title"].'</a>';
 		echo '</h4>';
 		echo '<p class="text-secondary mb-0">';
 		echo $question["description"];
@@ -87,8 +87,8 @@ if ($questions->num_rows > 0) {
 		echo '</div>';
 		echo '<p>';
 		echo '<a href="#" class="card-link"><small>Mohit Gusain</small></a>';
-		echo '<small class="text-secondary">asked on</small>';
-		echo '<small class="text-secondary">Sep 25, 2018</small>';
+		echo '<small class="text-secondary"> asked on</small>';
+		echo '<small class="text-secondary"> Sep 25, 2018</small>';
 		echo '</p>';
 		echo '<div class="d-flex text-secondary">';
 		echo '<div class="mr-3">';
@@ -107,7 +107,8 @@ if ($questions->num_rows > 0) {
 		echo '</div>';
 		echo '</div>';
 	}
-} else {
+}
+else {
 	echo "<h4>No questions are asked</h4>";
 }
 $conn->close();
