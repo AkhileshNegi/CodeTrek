@@ -1,7 +1,13 @@
 <?php 
 $title = $_POST['title'];
 $description = $_POST['description'];
-$tag = $_POST['tag'];
+$tags = $_POST['tag'];
+$conn = new mysqli('localhost', 'root', '', 'quean');
+if ($conn->connect_error){
+	die("Connection failed: " . $conn->connect_error);
+}
+$sql = "INSERT INTO questions (title, description, links)
+VALUES ('$title', '$description', '$tags')";
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +34,7 @@ $tag = $_POST['tag'];
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a href="index.html" class="nav-link">Questions</a>
+						<a href="index.php" class="nav-link">Questions</a>
 					</li>
 				</ul>
 				<ul class="navbar-nav">
@@ -52,7 +58,16 @@ $tag = $_POST['tag'];
 	</nav>
 	<div class="container d-flex mt-3 justify-content-center">
 		<div class="w-50 alert text-center border-success" role="alert">
-			<h4 class="alert-heading text-center">Thank you for Posting a question</h4>
+			<h4 class="alert-heading text-center">
+<?php
+if ($conn->query($sql) === TRUE) {
+echo "Thank you for Posting a question";
+} else {
+echo "Error: " . $sql . "<br>" . $conn->error;
+}
+$conn->close();
+?>
+			</h4>
 			<button class="btn btn-outline-success bg-light">
 				<a href="new-question.php" class="text-dark">Click For another question</a>
 			</button>
