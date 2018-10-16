@@ -1,3 +1,6 @@
+<?php 
+	echo $_GET['question_title'];
+?>
 <!DOCTYPE html>
 <html>
 <head>

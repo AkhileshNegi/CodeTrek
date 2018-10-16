@@ -76,9 +76,11 @@ if ($questions->num_rows > 0) {
 	while($question = $questions->fetch_assoc()) {?>
 		<div class="card mb-4 shadow-sm">
 			<div class="card-body">
-				<h4 class="card-title mb-1"><a class="text-body" href="answers.php">
-				<?php echo $question["title"];?>
-				</a></h4>
+				<h4 class="card-title mb-1">
+					<?php echo'<a class="text-body" href="answers.php?question_title='. $question["title"] .'">'?>
+						<?php echo $question["title"];?>
+					</a>
+				</h4>
 				<p class="text-secondary mb-0">
 				<?php echo $question["description"];?>
 				</p>
