@@ -83,11 +83,12 @@ if ($questions->num_rows > 0) {
 				<?php echo $question["description"];?>
 				</p>
 				<div class="mb-2">
-					<a href="#" class="badge badge-info"><?php echo $question["links"];?></a>
-					<a href="#" class="badge badge-info"><?php echo $question["links"];?></a>
-					<a href="#" class="badge badge-info"><?php echo $question["links"];?></a>
-				</div>
-				<p>
+					<?php $links = explode(',', $question["links"]);
+					for ($i=0; $i < sizeof($links); $i++) { 
+						echo ' <a href="#" class="badge badge-info"> ' . $links["$i"] . '</a>';
+					}
+					?>
+					</div>
 					<a href="#" class="card-link"><small>Abhishek Pokhriyal</small></a>
 					<small class="text-secondary">asked on</small>
 					<small class="text-secondary">Sep 27, 2018</small>
