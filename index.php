@@ -73,40 +73,42 @@ $questions = $conn->query($sql);
 		</div>
 <?php
 if ($questions->num_rows > 0) {
-	while($question = $questions->fetch_assoc()) {
-		echo '<div class="card mb-4 shadow-sm">';
-		echo '<div class="card-body">';
-		echo '<h4 class="card-title mb-1">';
-		echo '<a class="text-body" href="answers.php">'.$question["title"].'</a>';
-		echo '</h4>';
-		echo '<p class="text-secondary mb-0">';
-		echo $question["description"];
-		echo '</p>';
-		echo '<div class="mb-2">';
-		echo '<a href="#" class="badge badge-info">'.$question["links"].'</a>';
-		echo '</div>';
-		echo '<p>';
-		echo '<a href="#" class="card-link"><small>Mohit Gusain</small></a>';
-		echo '<small class="text-secondary"> asked on</small>';
-		echo '<small class="text-secondary"> Sep 25, 2018</small>';
-		echo '</p>';
-		echo '<div class="d-flex text-secondary">';
-		echo '<div class="mr-3">';
-		echo '<i class="far fa-thumbs-up"></i>';
-		echo '<small>22</small>';
-		echo '</div>';
-		echo '<div class="mr-3">';
-		echo '<i class="far fa-thumbs-down"></i>';
-		echo '<small>8</small>';
-		echo '</div>';
-		echo '<div class="mr-3">';
-		echo '<i class="far fa-comments"></i>';
-		echo '<a href="#" class="text-secondary"><small>10 answers</small></a>';
-		echo '</div>';
-		echo '</div>';
-		echo '</div>';
-		echo '</div>';
-	}
+	while($question = $questions->fetch_assoc()) {?>
+		<div class="card mb-4 shadow-sm">
+			<div class="card-body">
+				<h4 class="card-title mb-1"><a class="text-body" href="answers.php">
+				<?php echo $question["title"];?>
+				</a></h4>
+				<p class="text-secondary mb-0">
+				<?php echo $question["description"];?>
+				</p>
+				<div class="mb-2">
+					<a href="#" class="badge badge-info"><?php echo $question["links"];?></a>
+					<a href="#" class="badge badge-info"><?php echo $question["links"];?></a>
+					<a href="#" class="badge badge-info"><?php echo $question["links"];?></a>
+				</div>
+				<p>
+					<a href="#" class="card-link"><small>Abhishek Pokhriyal</small></a>
+					<small class="text-secondary">asked on</small>
+					<small class="text-secondary">Sep 27, 2018</small>
+				</p>
+				<div class="d-flex text-secondary">
+					<div class="mr-3">
+						<i class="far fa-thumbs-up"></i>
+						<small>14</small>
+					</div>
+					<div class="mr-3">
+						<i class="far fa-thumbs-down"></i>
+						<small>1</small>
+					</div>
+					<div class="mr-3">
+						<i class="far fa-comments"></i>
+						<a href="answers.html" class="text-secondary"><small>2 answers</small></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php }
 }
 else {
 	echo "<h4>No questions are asked</h4>";
