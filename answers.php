@@ -1,5 +1,15 @@
 <?php 
-	echo $_GET['question_title'];
+$title =  $_GET['question_title'];
+$conn = new mysqli('localhost', 'root', '', 'quean');
+$sql = "SELECT * FROM questions WHERE title = '$title' ";
+$questions = $conn->query($sql);
+if ($questions->num_rows > 0) {
+	while($question = $questions->fetch_assoc()) {
+		$title = $question["title"];
+		$description = $question["description"];
+		$tags = $question["links"];
+	}
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,15 +63,21 @@
 	<div class="container mt-5">
 		<div class="mb-5">
 			<h3>
-				How do I use Git and GitHub?
+				<?php 
+					echo $title;
+				?>
 			</h3>
 			<p class="text-secondary lead">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente accusantium quod perspiciatis voluptatem nemo ducimus. Eos eum aliquid, repellendus adipisci ullam perspiciatis ipsa beatae, perferendis eius voluptatibus atque, provident nemo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, sequi, ipsa. Molestias eius neque officia deserunt, ut reiciendis repellendus ipsam, possimus quae quam placeat quisquam debitis mollitia! Adipisci, autem, corporis.
+				<?php 
+					echo $description;
+				?>
 			</p>
 			<div class="mb-3">
-				<a href="#" class="badge badge-info">git</a>
-				<a href="#" class="badge badge-info">github</a>
-				<a href="#" class="badge badge-info">vcs</a>
+				<?php $links = explode(',', $tags);
+					for ($i=0; $i < sizeof($links); $i++) { 
+						echo ' <a href="#" class="badge badge-info"> ' . $links["$i"] . '</a>';
+					}
+					?>
 			</div>
 			<p>
 				<a href="#" class="card-link"><span>Abhishek Pokhriyal</span></a>
