@@ -3,13 +3,11 @@ $title =  $_GET['question_title'];
 $conn = new mysqli('localhost', 'root', '', 'quean');
 $sql = "SELECT * FROM questions WHERE title = '$title' ";
 $questions = $conn->query($sql);
-if ($questions->num_rows > 0) {
 	while($question = $questions->fetch_assoc()) {
 		$title = $question["title"];
 		$description = $question["description"];
 		$tags = $question["links"];
 	}
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -127,8 +125,8 @@ if ($questions->num_rows > 0) {
 		<div class="card mb-4 shadow-sm">
 			<div class="card-body">
 				<h4>Your Answer</h4>
-				<form>
-					<textarea name="description" id="description" rows="10" class="form-control" required>
+				<form action="register_answer.php" method="POST">
+					<textarea name="answer" id="answer" rows="10" class="form-control" required>
 					</textarea>
 					<button type="submit" class="btn btn-primary mt-3">Post your answer</button>
 				</form>
