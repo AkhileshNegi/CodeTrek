@@ -28,7 +28,6 @@ $questions = $conn->query($sql);
 			 aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
@@ -58,9 +57,9 @@ $questions = $conn->query($sql);
 		<div class="d-flex justify-content-between mb-3 flex-column flex-md-row">
 			<h3 class="font-weight-light mb-0">Questions</h3>
 			<div class="d-flex flex-column flex-md-row">
-				<form class="form-inline my-2 my-lg-0 mr-md-3">
+				<form class="form-inline my-2 my-lg-0 mr-md-3" action="search_question.php" method="POST">
 					<div class="input-group">
-						<input class="form-control" type="search" placeholder="Search question" aria-label="Search">
+						<input class="form-control" type="search" placeholder="Search question" aria-label="Search" name="search">
 						<div class="input-group-append">
 							<button class="btn btn-info my-0" type="submit">
 								<i class="fa fa-search"></i>
