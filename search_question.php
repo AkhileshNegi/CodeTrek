@@ -54,7 +54,6 @@ $questions = $conn->query($sql);
 			</div>
 		</div>
 	</nav>
-
 	<div class="container mt-5">
 		<div class="d-flex justify-content-between mb-3 flex-column flex-md-row">
 			<h3 class="font-weight-light mb-0">Questions</h3>
