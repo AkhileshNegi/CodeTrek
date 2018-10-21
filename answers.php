@@ -9,6 +9,7 @@ while($question = $questions->fetch_assoc()) {
 	$tags = $question["links"];
 	$qid = $question["qid"];
 	$q_date = $question["date"];
+	$author = $question["author"];	
 }
 $sql_answers = "SELECT * FROM answers WHERE question_id = '$qid'";
 $answers = $conn->query($sql_answers);
@@ -84,7 +85,11 @@ for ($i=0; $i < sizeof($links); $i++) {
 ?>
 			</div>
 			<p>
-				<a href="#" class="card-link"><span>Abhishek Pokhriyal</span></a>
+				<a href="#" class="card-link">
+					<span>
+							<?php echo $author;?>
+					</span>
+				</a>
 				<span class="text-secondary">asked on</span>
 				<span class="text-secondary">
 <?php	
