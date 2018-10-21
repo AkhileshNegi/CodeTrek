@@ -8,6 +8,7 @@ $questions = $conn->query($sql_question);
 		$description = $question["description"];
 		$tags = $question["links"];
 		$qid = $question["qid"];
+		$q_date = $question["date"];
 	}
 $sql_answers = "SELECT * FROM answers WHERE question_id = '$qid' ";
 $answers = $conn->query($sql_answers);
@@ -84,7 +85,12 @@ for ($i=0; $i < sizeof($links); $i++) {
 			<p>
 				<a href="#" class="card-link"><span>Abhishek Pokhriyal</span></a>
 				<span class="text-secondary">asked on</span>
-				<span class="text-secondary">Sep 27, 2018</span>
+				<span class="text-secondary">
+<?php	
+$date = date('F d, Y', strtotime($q_date));
+echo $date;
+?>
+				</span>
 			</p>
 			<div class="d-flex text-secondary">
 				<div class="mr-4 like c-pointer">
