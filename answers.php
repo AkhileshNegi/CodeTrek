@@ -104,13 +104,17 @@ for ($i=0; $i < sizeof($links); $i++) {
 <?php
 while($answer = $answers->fetch_assoc()) { 
 	$text = $answer["answer_text"];
+	$date = $answer["created_at"];
+	$date = date('F d, Y', strtotime($date));
 ?>
 		<div class="card mb-4 shadow-sm">
 			<div class="card-body">
 				<p>
 					<a href="#" class="card-link"><small>Vikas Rinvi</small></a>
 					<small class="text-secondary">answered on</small>
-					<small class="text-secondary">Sep 28, 2018</small>
+					<small class="text-secondary">
+<?php echo $date;?>
+					</small>
 					<span class="badge badge-success correct_tag"><i class="fa fa-check" aria-hidden="true"></i> Correct Answer</span></h1>
 				</p>
 				<p>
