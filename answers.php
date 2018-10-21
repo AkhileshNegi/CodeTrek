@@ -120,16 +120,21 @@ while($answer = $answers->fetch_assoc()) {
 	$text = $answer["answer_text"];
 	$date = $answer["created_at"];
 	$date = date('F d, Y', strtotime($date));
+	$answer_author = $answer["author"];
 ?>
 		<div class="card mb-4 shadow-sm">
 			<div class="card-body">
 				<p>
-					<a href="#" class="card-link"><small>Vikas Rinvi</small></a>
+					<a href="#" class="card-link">
+						<small>
+						<?php echo $answer_author;?>
+						</small>
+					</a>
 					<small class="text-secondary">answered on</small>
 					<small class="text-secondary">
 <?php echo $date;?>
 					</small>
-					<span class="badge badge-success correct_tag"><i class="fa fa-check" aria-hidden="true"></i> Correct Answer</span></h1>
+					<!-- <span class="badge badge-success correct_tag"><i class="fa fa-check" aria-hidden="true"></i> Correct Answer</span> -->
 				</p>
 				<p>
 <?php 

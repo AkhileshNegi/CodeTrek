@@ -5,7 +5,6 @@ if ($conn->connect_error){
 }
 $sql = "SELECT * FROM questions";
 $questions = $conn->query($sql);
-
 ?>
 <!DOCTYPE html>
 <html>
