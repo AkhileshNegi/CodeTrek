@@ -3,15 +3,16 @@ $title =  $_GET['question_title'];
 $conn = new mysqli('localhost', 'root', '', 'quean');
 $sql_question = "SELECT * FROM questions WHERE title = '$title' ";
 $questions = $conn->query($sql_question);
-	while($question = $questions->fetch_assoc()) {
-		$title = $question["title"];
-		$description = $question["description"];
-		$tags = $question["links"];
-		$qid = $question["qid"];
-		$q_date = $question["date"];
-	}
-$sql_answers = "SELECT * FROM answers WHERE question_id = '$qid' ";
+while($question = $questions->fetch_assoc()) {
+	$title = $question["title"];
+	$description = $question["description"];
+	$tags = $question["links"];
+	$qid = $question["qid"];
+	$q_date = $question["date"];
+}
+$sql_answers = "SELECT * FROM answers WHERE question_id = '$qid'";
 $answers = $conn->query($sql_answers);
+$answers_count=mysqli_num_rows($answers);
 ?>
 <!DOCTYPE html>
 <html>
@@ -103,7 +104,9 @@ echo $date;
 				</div>
 				<div class="mr-4">
 					<i class="fas fa-comments fa-lg"></i>
-					<span>2 answers</span>
+					<span>
+					<?php echo $answers_count;?> 
+					answers</span>
 				</div>
 			</div>
 		</div>
