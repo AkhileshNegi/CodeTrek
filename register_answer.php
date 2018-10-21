@@ -1,11 +1,11 @@
 <?php 
-$answer = $_POST['answer'];
+$answers = $_POST['answer'];
+$qid = $_POST['qid'];
 $conn = new mysqli('localhost', 'root', '', 'quean');
 if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
-$sql = "INSERT INTO answers (answer_text)
-VALUES ('$answer')";
+$sql = "INSERT INTO answers (question_id, answer_text) VALUES ('$qid','$answers')";
 ?>
 <!DOCTYPE html>
 <html>
@@ -59,7 +59,7 @@ VALUES ('$answer')";
 			<h4 class="alert-heading text-center">
 <?php
 if ($conn->query($sql) === TRUE) {
-echo "Thank you for Posting a question";
+echo "Your answer has been Registered";
 } else {
 echo "Error: " . $sql . "<br>" . $conn->error;
 }

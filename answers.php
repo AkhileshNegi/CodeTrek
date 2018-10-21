@@ -7,6 +7,7 @@ $questions = $conn->query($sql);
 		$title = $question["title"];
 		$description = $question["description"];
 		$tags = $question["links"];
+		$qid = $question["qid"];
 	}
 ?>
 <!DOCTYPE html>
@@ -125,9 +126,12 @@ $questions = $conn->query($sql);
 		<div class="card mb-4 shadow-sm">
 			<div class="card-body">
 				<h4>Your Answer</h4>
-				<form action="register_answer.php" method="POST">
+					<form action="register_answer.php" method="POST">
 					<textarea name="answer" id="answer" rows="10" class="form-control" required>
 					</textarea>
+<?php
+echo '<input type="hidden" name="qid" value="'.$qid.'">';
+?>
 					<button type="submit" class="btn btn-primary mt-3">Post your answer</button>
 				</form>
 			</div>
