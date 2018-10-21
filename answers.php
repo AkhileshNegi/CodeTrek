@@ -11,13 +11,6 @@ $questions = $conn->query($sql_question);
 	}
 $sql_answers = "SELECT * FROM answers WHERE question_id = '$qid' ";
 $answers = $conn->query($sql_answers);
-while($answer = $answers->fetch_assoc()) {
-var_dump($answer);
-		// $title = $question["title"];
-		// $description = $question["description"];
-		// $tags = $question["links"];
-		// $qid = $question["qid"];
-	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,21 +64,22 @@ var_dump($answer);
 	<div class="container mt-5">
 		<div class="mb-5">
 			<h3>
-				<?php 
-					echo $title;
-				?>
+<?php 
+	echo $title;
+?>
 			</h3>
 			<p class="text-secondary lead">
-				<?php 
-					echo $description;
-				?>
+<?php 
+	echo $description;
+?>
 			</p>
 			<div class="mb-3">
-				<?php $links = explode(',', $tags);
-					for ($i=0; $i < sizeof($links); $i++) { 
-						echo ' <a href="#" class="badge badge-info"> ' . $links["$i"] . '</a>';
-					}
-					?>
+<?php
+$links = explode(',', $tags);
+for ($i=0; $i < sizeof($links); $i++) { 
+	echo ' <a href="#" class="badge badge-info"> ' . $links["$i"] . '</a>';
+}
+?>
 			</div>
 			<p>
 				<a href="#" class="card-link"><span>Abhishek Pokhriyal</span></a>
@@ -107,6 +101,10 @@ var_dump($answer);
 				</div>
 			</div>
 		</div>
+<?php
+while($answer = $answers->fetch_assoc()) { 
+	$text = $answer["answer_text"];
+?>
 		<div class="card mb-4 shadow-sm">
 			<div class="card-body">
 				<p>
@@ -116,22 +114,15 @@ var_dump($answer);
 					<span class="badge badge-success correct_tag"><i class="fa fa-check" aria-hidden="true"></i> Correct Answer</span></h1>
 				</p>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero error blanditiis voluptatibus, ipsa cumque minus eos. Iste temporibus accusamus saepe necessitatibus assumenda, ratione perspiciatis! Totam numquam autem hic nam pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum voluptatum recusandae amet sunt fugiat reiciendis aliquid nihil vero, deleniti repudiandae iure quidem rem beatae voluptas voluptatibus tenetur perspiciatis expedita officia!
+<?php 
+echo $text;
+?>
 				</p>
 			</div>
 		</div>
-		<div class="card mb-4 shadow-sm">
-			<div class="card-body">
-				<p>
-					<a href="#" class="card-link"><small>Mohit Gusain</small></a>
-					<small class="text-secondary">answered on</small>
-					<small class="text-secondary">Sep 27, 2018</small>
-				</p>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi libero facilis perferendis, eveniet? Reprehenderit ab pariatur soluta consequuntur, delectus magnam nisi ullam unde nobis expedita itaque fuga, animi, cupiditate totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum deserunt possimus saepe sunt perferendis, repellendus minus pariatur quasi excepturi quod voluptas ratione ut voluptatem fuga animi natus omnis, consequatur corporis.
-				</p>
-			</div>
-		</div>
+<?php 
+	}
+?>
 		<div class="card mb-4 shadow-sm">
 			<div class="card-body">
 				<h4>Your Answer</h4>
