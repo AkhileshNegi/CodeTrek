@@ -1,13 +1,22 @@
 <?php 
 $title =  $_GET['question_title'];
 $conn = new mysqli('localhost', 'root', '', 'quean');
-$sql = "SELECT * FROM questions WHERE title = '$title' ";
-$questions = $conn->query($sql);
+$sql_question = "SELECT * FROM questions WHERE title = '$title' ";
+$questions = $conn->query($sql_question);
 	while($question = $questions->fetch_assoc()) {
 		$title = $question["title"];
 		$description = $question["description"];
 		$tags = $question["links"];
 		$qid = $question["qid"];
+	}
+$sql_answers = "SELECT * FROM answers WHERE question_id = '$qid' ";
+$answers = $conn->query($sql_answers);
+while($answer = $answers->fetch_assoc()) {
+var_dump($answer);
+		// $title = $question["title"];
+		// $description = $question["description"];
+		// $tags = $question["links"];
+		// $qid = $question["qid"];
 	}
 ?>
 <!DOCTYPE html>

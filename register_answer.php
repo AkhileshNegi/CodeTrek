@@ -67,7 +67,7 @@ $conn->close();
 ?>
 			</h4>
 			<button class="btn btn-outline-success bg-light">
-				<a href="new-question.php" class="text-dark">Click For another question</a>
+				<a href="index.php" class="text-dark">Click to go Home</a>
 			</button>
 		</div>
 	</div>
