@@ -87,7 +87,7 @@ for ($i=0; $i < sizeof($links); $i++) {
 			<p>
 				<a href="#" class="card-link">
 					<span>
-							<?php echo $author;?>
+						<?php echo $author;?>
 					</span>
 				</a>
 				<span class="text-secondary">asked on</span>

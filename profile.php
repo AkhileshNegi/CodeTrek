@@ -36,7 +36,7 @@
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<div class="dropdown-item disabled">Akhilesh Negi</div>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="profile.html">My Profile</a>
+							<a class="dropdown-item" href="profile.php">My Profile</a>
 							<a class="dropdown-item" href="#">Settings</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#">Sign out</a>

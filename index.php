@@ -3,8 +3,9 @@ $conn = new mysqli('localhost', 'root', '', 'quean');
 if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT title, description, links FROM questions";
+$sql = "SELECT * FROM questions";
 $questions = $conn->query($sql);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,7 +44,7 @@ $questions = $conn->query($sql);
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<div class="dropdown-item disabled">Akhilesh Negi</div>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">My Profile</a>
+							<a class="dropdown-item" href="Profile.php">My Profile</a>
 							<a class="dropdown-item" href="#">Settings</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#">Sign out</a>
@@ -90,9 +91,15 @@ if ($questions->num_rows > 0) {
 					}
 					?>
 					</div>
-					<a href="#" class="card-link"><small>Abhishek Pokhriyal</small></a>
+					<a href="#" class="card-link"><small><?php echo  $question["author"];?></small></a>
 					<small class="text-secondary">asked on</small>
-					<small class="text-secondary">Sep 27, 2018</small>
+					<small class="text-secondary">
+					<?php 
+					$date = $question["date"];
+					$date = date('F d, Y', strtotime($date));
+					echo $date;
+					?>
+					</small>
 				</p>
 				<div class="d-flex text-secondary">
 					<div class="mr-3">
