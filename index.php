@@ -151,15 +151,11 @@ if ($questions->num_rows > 0) {
 				<div class="d-flex text-secondary">
 					<div class="mr-3">
 						<i class="far fa-thumbs-up"></i>
-						<small>14</small>
+						<small><?php echo $question["likes"];?></small>
 					</div>
 					<div class="mr-3">
 						<i class="far fa-thumbs-down"></i>
-						<small>1</small>
-					</div>
-					<div class="mr-3">
-						<i class="far fa-comments"></i>
-						<a href="answers.html" class="text-secondary"><small>2 answers</small></a>
+						<small><?php echo $question["dislikes"];?></small>
 					</div>
 				</div>
 			</div>
