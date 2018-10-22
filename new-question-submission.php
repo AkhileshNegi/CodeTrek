@@ -5,6 +5,8 @@ $tags = $_POST['tag'];
 $conn = new mysqli('localhost', 'root', '', 'quean');
 if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
+session_start();
+$user_name = $_SESSION["name"];
 }
 $sql = "INSERT INTO questions (title, description, links)
 VALUES ('$title', '$description', '$tags')";
@@ -44,7 +46,7 @@ VALUES ('$title', '$description', '$tags')";
 							<i class="fa fa-cog"></i>
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<div class="dropdown-item disabled">Akhilesh Negi</div>
+							<div class="dropdown-item disabled"><?php echo $user_name;?></div>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#">My Profile</a>
 							<a class="dropdown-item" href="#">Settings</a>

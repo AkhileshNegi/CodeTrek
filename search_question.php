@@ -6,6 +6,8 @@ if ($conn->connect_error){
 }
 $sql = "SELECT title, description, links FROM questions WHERE title LIKE  '%{$search}%'";
 $questions = $conn->query($sql);
+session_start();
+$user_name = $_SESSION["name"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,7 +44,7 @@ $questions = $conn->query($sql);
 							<i class="fa fa-cog"></i>
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<div class="dropdown-item disabled">Akhilesh Negi</div>
+							<div class="dropdown-item disabled"><?php echo $user_name;?></div>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="profile.php">My Profile</a>
 							<a class="dropdown-item" href="#">Settings</a>
