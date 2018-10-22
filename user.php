@@ -90,7 +90,9 @@ if (!empty($_SESSION["name"])) {
 	<div class="container mt-5">
 		<div class="row">
 			<div class="m-1 col-sm-auto" >			
-				<img src="images/Akhilesh-Negi.jpg" class="rounded-circle" alt="Akhilesh Negi" width="200" height="200">
+				<?php 
+				echo '<img src="images/'.$user["first_name"]."-".$user["last_name"].'.jpg" class="rounded-circle" alt="'.$user_name.'" width="200" height="200">';
+				?>
 			</div>
 			<div class="m-1 col-sm-auto">
 				<h3><?php echo $user['first_name']." ".$user['last_name'];?></h3>
