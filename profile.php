@@ -60,15 +60,15 @@ $user_name = $_SESSION["name"];
 				<i class="fa fa-building">
 					<small class="m-1 text-secondary"> Software Developer, Wipro</small>
 				</i><br>
-				<i class="fa fa-globe" aria-hidden="true">
+				<i class="fas fa-map-marker-alt">
 					<small class="m-1 text-secondary"> Pune</small>
 				</i><br><br>
 				<h6><small>2 Questions Asked</small></h6>
 				<h6><small>4 Answers</small><br></h6>
-				<a href="#"><i class="text-secondary fa fa-github" aria-hidden="true"></i></a>
-				<a href="#"><i class="text-secondary fa fa-linkedin-square" aria-hidden="true"></i></a>
-				<a href="#"><i class="text-secondary fa fa-facebook-official" aria-hidden="true"></i></a>
-				<a href="#"><i class="text-secondary fa fa-envelope" aria-hidden="true"></i></a>
+				<a href="#"><i class="text-secondary fab fa-github-square fa-2x"> </i></a>
+				<a href="#"><i class="text-secondary fab fa-linkedin fa-2x"> </i></a>
+				<a href="#"><i class="text-secondary fab fa-facebook fa-2x"> </i></a>
+				<a href="#"><i class="text-secondary fas fa-envelope fa-2x"> </i></a>
 			</div>
 		</div><br>
 		<h3><small>Your Questions</small></h3>

@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -55,15 +55,15 @@
 				<i class="fa fa-building">
 					<small class="m-1 text-secondary"> Software Developer, Wipro</small>
 				</i><br>
-				<i class="fa fa-globe" aria-hidden="true">
+				<i class="fas fa-map-marker-alt">
 					<small class="m-1 text-secondary"> Pune</small>
 				</i><br><br>
 				<h6><small>2 Questions Asked</small></h6>
 				<h6><small>4 Answers</small><br></h6>
-				<a href="#"><i class="text-secondary fa fa-github" aria-hidden="true"></i></a>
-				<a href="#"><i class="text-secondary fa fa-linkedin-square" aria-hidden="true"></i></a>
-				<a href="#"><i class="text-secondary fa fa-facebook-official" aria-hidden="true"></i></a>
-				<a href="#"><i class="text-secondary fa fa-envelope" aria-hidden="true"></i></a>
+				<a href="#"><i class="text-secondary fab fa-github-square fa-2x"> </i></a>
+				<a href="#"><i class="text-secondary fab fa-linkedin fa-2x"> </i></a>
+				<a href="#"><i class="text-secondary fab fa-facebook fa-2x"> </i></a>
+				<a href="#"><i class="text-secondary fas fa-envelope fa-2x"> </i></a>
 			</div>
 		</div><br>
 		<h3><small>Questions asked by Rajat Batoe</small></h3>
