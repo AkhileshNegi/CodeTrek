@@ -13,10 +13,13 @@ if($_POST){
 	if ($result->num_rows > 0) {
 	    while($row = $result->fetch_assoc()) {
 		$_SESSION["name"] = $row['first_name']." ".$row['last_name'];
+		$user_name = $_SESSION["name"];
    		}
 	}
 }
-$user_name = $_SESSION["name"];
+if (!empty($_SESSION["name"])) {
+	$user_name = $_SESSION["name"];
+}
 $conn = new mysqli('localhost', 'root', '', 'quean');
 $sql = "SELECT * FROM questions";
 $questions = $conn->query($sql);
@@ -40,7 +43,7 @@ if ($conn->connect_error){
 </head>
 <body>
 	<?php
-	if (empty($user_name)) {?>
+	if (empty($_SESSION["name"])) {?>
 	<div class="container d-flex mt-3 justify-content-center">
 			<div class="w-50 alert text-center border-success" role="alert">
 				<h4 class="alert-heading text-center">
