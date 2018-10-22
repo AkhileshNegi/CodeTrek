@@ -7,7 +7,7 @@ $conn = new mysqli('localhost', 'root', '', 'quean');
 if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
-$sql = "INSERT INTO answers (question_id, answer_text) VALUES ('$qid','$answers')";
+$sql = "INSERT INTO answers (question_id, answer_text, author) VALUES ('$qid','$answers', '$user_name')";
 ?>
 <!DOCTYPE html>
 <html>
