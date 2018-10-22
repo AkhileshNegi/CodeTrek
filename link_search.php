@@ -72,7 +72,7 @@ if (!empty($_SESSION["name"])) {
 							<a class="dropdown-item" href="profile.php">My Profile</a>
 							<a class="dropdown-item" href="#">Settings</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Sign out</a>
+							<a class="dropdown-item" href="sign_out.php">Sign out</a>
 						</div>
 					</li>
 				</ul>

@@ -74,7 +74,7 @@ VALUES ('$title', '$description', '$tags','$user_name', CURRENT_TIMESTAMP)";
 							<a class="dropdown-item" href="#">My Profile</a>
 							<a class="dropdown-item" href="#">Settings</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Sign out</a>
+							<a class="dropdown-item" href="sign_out.php">Sign out</a>
 						</div>
 					</li>
 				</ul>
