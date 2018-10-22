@@ -15,6 +15,10 @@ if($_POST){
 		$_SESSION["name"] = $row['first_name']." ".$row['last_name'];
    		}
 	}
+	else{
+		echo"Credentials does not match";
+		die();
+	}
 }
 if (!empty($_SESSION["name"])) {
 	$user_name = $_SESSION["name"];
