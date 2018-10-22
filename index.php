@@ -142,7 +142,15 @@ if ($questions->num_rows > 0) {
 					}
 					?>
 					</div>
-					<a href="#" class="card-link"><small><?php echo  $question["author"];?></small></a>
+					<?php
+					$name = $question["author"];
+					$names = explode(" ",$name);
+					echo '<a href="user.php?name='.$names[0].'" class="card-link">';
+					?>
+						<small>
+							<?php echo $question["author"];?>
+						</small>
+					</a>
 					<small class="text-secondary">asked on</small>
 					<small class="text-secondary">
 					<?php 
