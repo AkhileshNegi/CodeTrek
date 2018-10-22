@@ -23,7 +23,7 @@ if (!empty($_SESSION["name"])) {
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CodeTrek Forum</title>
+	<title>Répondre</title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -56,7 +56,7 @@ if (!empty($_SESSION["name"])) {
 	?>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
 		<div class="container">
-			<a class="navbar-brand" href="index.php">CodeTrek Forum</a>
+			<a class="navbar-brand" href="index.php">Répondre</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 			 aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -90,7 +90,9 @@ if (!empty($_SESSION["name"])) {
 	<div class="container mt-5">
 		<div class="row">
 			<div class="m-1 col-sm-auto" >			
-				<img src="images/Akhilesh-Negi.jpg" class="rounded-circle" alt="Akhilesh Negi" width="200" height="200">
+				<?php 
+				echo '<img src="images/'.$user["first_name"]."-".$user["last_name"].'.jpg" class="rounded-circle" alt="'.$user_name.'" width="200" height="200">';
+				?>
 			</div>
 			<div class="m-1 col-sm-auto">
 				<h3><?php echo $user_name;?></h3>
@@ -175,5 +177,8 @@ $con->close();
 ?>
 	</div>
 	</div>
+	<footer class="bg-light py-3 text-center mt-1">
+		<span class="text-primary"><i class="fas fa-code"></i> Developed at CodeTrek Tehri 2018</span>
+	</footer>
 </body>
 </html>

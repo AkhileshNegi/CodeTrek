@@ -7,7 +7,7 @@ session_unset($_SESSION["name"]);
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CodeTrek Forum</title>
+	<title>Répondre</title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -19,7 +19,7 @@ session_unset($_SESSION["name"]);
 <body>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
 		<div class="container">
-			<a class="navbar-brand" href="index.php">CodeTrek Forum</a>
+			<a class="navbar-brand" href="index.php">Répondre</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 			 aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -46,5 +46,8 @@ session_unset($_SESSION["name"]);
 		</div>
 	</div>
 	</div>
+	<footer class="bg-light py-3 text-center mt-1">
+		<span class="text-primary"><i class="fas fa-code"></i> Developed at CodeTrek Tehri 2018</span>
+	</footer>
 </body>
 </html>
