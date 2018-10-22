@@ -58,7 +58,7 @@ $answers_count=mysqli_num_rows($answers);
 	?>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
 		<div class="container">
-			<a class="navbar-brand" href="#">CodeTrek Forum</a>
+			<a class="navbar-brand" href="index.php">CodeTrek Forum</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 			 aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -67,7 +67,7 @@ $answers_count=mysqli_num_rows($answers);
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a href="index.html" class="nav-link">Questions</a>
+						<a href="index.php" class="nav-link">Questions</a>
 					</li>
 				</ul>
 				<ul class="navbar-nav">
@@ -127,11 +127,11 @@ echo $date;
 			</p>
 			<div class="d-flex text-secondary">
 				<div class="mr-4 like c-pointer">
-					<i class="fas fa-thumbs-up fa-lg" id="like"></i>
+					<?php echo '<i class="fas fa-thumbs-up fa-lg" data-qid="'. $qid . '" id="like" ></i>';?>
 					<span id="like_count">14</span>
 				</div>
 				<div class="mr-4 dislike c-pointer">
-					<i class="fas fa-thumbs-down fa-lg" id="dislike"></i>
+					<?php echo '<i class="fas fa-thumbs-down fa-lg" value="'. $qid . '" id="dislike"></i>';?>
 					<span id="dislike_count">1</span>
 				</div>
 				<div class="mr-4">
