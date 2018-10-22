@@ -4,7 +4,7 @@ $conn = new mysqli('localhost', 'root', '', 'quean');
 if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT title, description, links FROM questions WHERE title LIKE  '%{$search}%'";
+$sql = "SELECT title, description, links FROM questions WHERE title LIKE  '%$search%'";
 $questions = $conn->query($sql);
 session_start();
 $user_name = $_SESSION["name"];
