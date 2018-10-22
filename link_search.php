@@ -1,29 +1,14 @@
 <?php
-session_unset();
-session_start();
-$con = new mysqli('localhost', 'root', '', 'alchemist');
-if ($con->connect_error) {
-    die("Connection failed in login: " . $conn->connect_error);
-} 
-if($_POST){
-	$email = $_POST['email'];
-	$password = $_POST['password'];
-	$sql="SELECT * FROM user WHERE email='$email' AND password = '$password'";
-	$result = $con->query($sql);
-	if ($result->num_rows > 0) {
-	    while($row = $result->fetch_assoc()) {
-		$_SESSION["name"] = $row['first_name']." ".$row['last_name'];
-   		}
-	}
-}
-if (!empty($_SESSION["name"])) {
-	$user_name = $_SESSION["name"];
-}
+$tag =  $_GET['tag'];
 $conn = new mysqli('localhost', 'root', '', 'quean');
-$sql = "SELECT * FROM questions";
-$questions = $conn->query($sql);
 if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
+}
+$sql = "SELECT * FROM questions WHERE links LIKE  '%$tag%'";
+$questions = $conn->query($sql);
+session_start();
+if (!empty($_SESSION["name"])) {
+	$user_name = $_SESSION["name"];
 }
 ?>
 <!DOCTYPE html>
@@ -42,7 +27,7 @@ if ($conn->connect_error){
 </head>
 <body>
 	<?php
-	if (empty($_SESSION["name"])) {?>
+	if (empty($user_name)) {?>
 	<div class="container d-flex mt-3 justify-content-center">
 			<div class="w-50 alert text-center border-success" role="alert">
 				<h4 class="alert-heading text-center">
@@ -64,7 +49,7 @@ if ($conn->connect_error){
 	?>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
 		<div class="container">
-			<a class="navbar-brand" href="index.php">CodeTrek Forum</a>
+			<a class="navbar-brand" href="#">CodeTrek Forum</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 			 aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -84,10 +69,10 @@ if ($conn->connect_error){
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<div class="dropdown-item disabled"><?php echo $user_name;?></div>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="Profile.php">My Profile</a>
+							<a class="dropdown-item" href="profile.php">My Profile</a>
 							<a class="dropdown-item" href="#">Settings</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="sign_out.php">Sign out</a>
+							<a class="dropdown-item" href="#">Sign out</a>
 						</div>
 					</li>
 				</ul>
@@ -98,16 +83,6 @@ if ($conn->connect_error){
 		<div class="d-flex justify-content-between mb-3 flex-column flex-md-row">
 			<h3 class="font-weight-light mb-0">Questions</h3>
 			<div class="d-flex flex-column flex-md-row">
-				<form class="form-inline my-2 my-lg-0 mr-md-3" action="search_question.php" method="POST">
-					<div class="input-group">
-						<input class="form-control" type="search" placeholder="Search question" aria-label="Search" name="search">
-						<div class="input-group-append">
-							<button class="btn btn-info my-0" type="submit">
-								<i class="fa fa-search"></i>
-							</button>
-						</div>
-					</div>
-				</form>
 				<a class="btn btn-outline-primary" href="new-question.php">Ask question</a>
 			</div>
 		</div>
@@ -125,24 +100,15 @@ if ($questions->num_rows > 0) {
 				<?php echo $question["description"];?>
 				</p>
 				<div class="mb-2">
-					<?php
-					if ($question["links"] !='') {
-						$links = explode(',', $question["links"]);
-						for ($i=0; $i < sizeof($links); $i++) { 
-							echo ' <a href="link_search.php?tag='. $links["$i"] .'" class="badge badge-info"> ' . $links["$i"] . '</a>';
-						}
+					<?php $links = explode(',', $question["links"]);
+					for ($i=0; $i < sizeof($links); $i++) { 
+						echo ' <a href="#" class="badge badge-info"> ' . $links["$i"] . '</a>';
 					}
 					?>
 					</div>
-					<a href="#" class="card-link"><small><?php echo  $question["author"];?></small></a>
+					<a href="#" class="card-link"><small>Abhishek Pokhriyal</small></a>
 					<small class="text-secondary">asked on</small>
-					<small class="text-secondary">
-					<?php 
-					$date = $question["q_date"];
-					$date = date('F d, Y', strtotime($date));
-					echo $date;
-					?>
-					</small>
+					<small class="text-secondary">Sep 27, 2018</small>
 				</p>
 				<div class="d-flex text-secondary">
 					<div class="mr-3">
@@ -163,7 +129,7 @@ if ($questions->num_rows > 0) {
 	<?php }
 }
 else {
-	echo "<h4>No questions are asked</h4>";
+	echo "<h4>No questions are asked with such tags exists</h4>";
 }
 $conn->close();
 ?>
