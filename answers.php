@@ -80,9 +80,11 @@ $answers_count=mysqli_num_rows($answers);
 			</p>
 			<div class="mb-3">
 <?php
-$links = explode(',', $tags);
-for ($i=0; $i < sizeof($links); $i++) { 
-	echo ' <a href="#" class="badge badge-info"> ' . $links["$i"] . '</a>';
+if ($tags !='') {
+	$links = explode(',', $tags);
+	for ($i=0; $i < sizeof($links); $i++) { 
+		echo ' <a href="#" class="badge badge-info"> ' . $links["$i"] . '</a>';
+	}
 }
 ?>
 			</div>

@@ -1,4 +1,6 @@
 <?php
+session_unset();
+session_start();
 $con = new mysqli('localhost', 'root', '', 'alchemist');
 if ($con->connect_error) {
     die("Connection failed in login: " . $conn->connect_error);
@@ -10,13 +12,10 @@ if($_POST){
 	$result = $con->query($sql);
 	if ($result->num_rows > 0) {
 	    while($row = $result->fetch_assoc()) {
-		session_unset();
-		session_start();
 		$_SESSION["name"] = $row['first_name']." ".$row['last_name'];
    		}
 	}
 }
-session_start();
 $user_name = $_SESSION["name"];
 $conn = new mysqli('localhost', 'root', '', 'quean');
 $sql = "SELECT * FROM questions";
@@ -40,6 +39,27 @@ if ($conn->connect_error){
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
+	<?php
+	if (empty($user_name)) {?>
+	<div class="container d-flex mt-3 justify-content-center">
+			<div class="w-50 alert text-center border-success" role="alert">
+				<h4 class="alert-heading text-center">
+					<?php
+					echo "You're not Logged in";
+					?>
+				</h4>
+				<button class="btn btn-outline-success bg-light">
+					<a href="login.php" class="text-dark">Login now</a>
+				</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+	<?php
+	die();
+	}
+	?>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
 		<div class="container">
 			<a class="navbar-brand" href="index.php">CodeTrek Forum</a>
