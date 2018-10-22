@@ -7,7 +7,9 @@ if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
 session_start();
-$user_name = $_SESSION["name"];
+if (!empty($_SESSION["name"])) {
+	$user_name = $_SESSION["name"];
+}
 $sql = "INSERT INTO questions (title, description, links, author, q_date)
 VALUES ('$title', '$description', '$tags','$user_name', CURRENT_TIMESTAMP)";
 ?>

@@ -2,7 +2,9 @@
 $answers = $_POST['answer'];
 $qid = $_POST['qid'];
 session_start();
-$user_name = $_SESSION["name"];
+if (!empty($_SESSION["name"])) {
+	$user_name = $_SESSION["name"];
+}
 $conn = new mysqli('localhost', 'root', '', 'quean');
 if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);

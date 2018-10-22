@@ -12,7 +12,9 @@ while($question = $questions->fetch_assoc()) {
 	$author = $question["author"];	
 }
 session_start();
-$user_name = $_SESSION["name"];
+if (!empty($_SESSION["name"])) {
+	$user_name = $_SESSION["name"];
+}
 $sql_answers = "SELECT * FROM answers WHERE question_id = '$qid'";
 $answers = $conn->query($sql_answers);
 $answers_count=mysqli_num_rows($answers);

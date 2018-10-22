@@ -1,6 +1,8 @@
 <?php
 session_start();
-$user_name = $_SESSION["name"];
+if (!empty($_SESSION["name"])) {
+	$user_name = $_SESSION["name"];
+}
 ?>
 <!DOCTYPE html>
 <html>

@@ -13,7 +13,6 @@ if($_POST){
 	if ($result->num_rows > 0) {
 	    while($row = $result->fetch_assoc()) {
 		$_SESSION["name"] = $row['first_name']." ".$row['last_name'];
-		$user_name = $_SESSION["name"];
    		}
 	}
 }
