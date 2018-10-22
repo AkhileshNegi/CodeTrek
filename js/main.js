@@ -3,7 +3,7 @@ $(document).ready(function(){
         var like_count = $("#like_count").html();
         like_count--;
         var qid = $('#like').data('qid');
-        Alter_like(like_count);
+        Alter_like(like_count,qid);
         $("#like_count").html(like_count);
     }
     function decrease_dislike(){
@@ -26,7 +26,7 @@ $(document).ready(function(){
             var like_count = $("#like_count").html();
             like_count++;
             var qid = $('#like').data('qid');
-            Alter_like(like_count);
+            Alter_like(like_count,qid);
             $("#like_count").html(like_count);
         }
     });
@@ -47,12 +47,15 @@ $(document).ready(function(){
         	$("#dislike_count").html(dislike_count);
         }
     });
-    function Alter_like(like_count)
+    function Alter_like(like_count,qid)
     {
       jQuery.ajax({
        type: "POST",
        url: "like_counter.php",
-       data: 'like_count='+like_count,
+       data: { 
+                like_count: +like_count, 
+                qid: +qid
+            },
        cache: false,
      });
     }
