@@ -106,7 +106,7 @@ $answers_count=mysqli_num_rows($answers);
 if ($tags !='') {
 	$links = explode(',', $tags);
 	for ($i=0; $i < sizeof($links); $i++) { 
-		echo ' <a href="#" class="badge badge-info"> ' . $links["$i"] . '</a>';
+		echo ' <a href="link_search.php?tag='. $links["$i"] .'" class="badge badge-info"> ' . $links["$i"] . '</a>';
 	}
 }
 ?>

@@ -102,7 +102,7 @@ if ($questions->num_rows > 0) {
 				<div class="mb-2">
 					<?php $links = explode(',', $question["links"]);
 					for ($i=0; $i < sizeof($links); $i++) { 
-						echo ' <a href="#" class="badge badge-info"> ' . $links["$i"] . '</a>';
+						echo ' <a href="link_search.php?tag='. $links["$i"] .'" class="badge badge-info"> ' . $links["$i"] . '</a>';
 					}
 					?>
 					</div>
