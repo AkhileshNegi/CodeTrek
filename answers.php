@@ -9,7 +9,9 @@ while($question = $questions->fetch_assoc()) {
 	$tags = $question["links"];
 	$qid = $question["qid"];
 	$q_date = $question["q_date"];
-	$author = $question["author"];	
+	$author = $question["author"];
+	$likes = $question["likes"];
+	$dislikes = $question["dislikes"];	
 }
 session_start();
 if (!empty($_SESSION["name"])) {
@@ -128,11 +130,11 @@ echo $date;
 			<div class="d-flex text-secondary">
 				<div class="mr-4 like c-pointer">
 					<?php echo '<i class="fas fa-thumbs-up fa-lg" data-qid="'. $qid . '" id="like" ></i>';?>
-					<span id="like_count">14</span>
+					<span id="like_count"><?php echo $likes;?></span>
 				</div>
 				<div class="mr-4 dislike c-pointer">
 					<?php echo '<i class="fas fa-thumbs-down fa-lg" data-qid="'. $qid . '" id="dislike"></i>';?>
-					<span id="dislike_count">1</span>
+					<span id="dislike_count"><?php echo $dislikes;?></span>
 				</div>
 				<div class="mr-4">
 					<i class="fas fa-comments fa-lg"></i>
