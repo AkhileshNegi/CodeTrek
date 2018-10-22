@@ -20,6 +20,8 @@ if (!empty($_SESSION["name"])) {
 $sql_answers = "SELECT * FROM answers WHERE question_id = '$qid'";
 $answers = $conn->query($sql_answers);
 $answers_count=mysqli_num_rows($answers);
+$q_cmnt = "UPDATE questions SET comments= '$answers_count' WHERE qid='$qid'";
+mysqli_query($conn, $q_cmnt);
 ?>
 <!DOCTYPE html>
 <html>

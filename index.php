@@ -161,10 +161,10 @@ if ($questions->num_rows > 0) {
 						<i class="far fa-thumbs-down"></i>
 						<small><?php echo $question["dislikes"];?></small>
 					</div>
-<!-- 					<div class="mr-3">
+					<div class="mr-3">
 						<i class="far fa-comments"></i>
-						<a href="answers.html" class="text-secondary"><small>2 answers</small></a>
-					</div> -->
+						<a href="answers.html" class="text-secondary"><small><?php echo $question["comments"];?> answers</small></a>
+					</div>
 				</div>
 			</div>
 		</div>
