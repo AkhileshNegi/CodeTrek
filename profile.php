@@ -2,6 +2,14 @@
 session_start();
 if (!empty($_SESSION["name"])) {
 	$user_name = $_SESSION["name"];
+	$UID = $_SESSION["UID"];
+	$con = new mysqli('localhost', 'root', '', 'quean');
+	if ($con->connect_error) {
+	    die("Connection failed in login: " . $conn->connect_error);
+	} 
+	$sql="SELECT * FROM user WHERE UID='$UID'";
+	$result = $con->query($sql);
+	$user = $result->fetch_assoc();
 }
 ?>
 <!DOCTYPE html>
@@ -79,12 +87,12 @@ if (!empty($_SESSION["name"])) {
 				<img src="images/Akhilesh-Negi.jpg" class="rounded-circle" alt="Akhilesh Negi" width="200" height="200">
 			</div>
 			<div class="m-1 col-sm-auto">
-				<h3>Akhilesh Negi</h3>
+				<h3><?php echo $user_name;?></h3>
 				<i class="fa fa-building">
-					<small class="m-1 text-secondary"> Software Developer, Wipro</small>
+					<small class="m-1 text-secondary"><?php echo $user['position'];?></small>
 				</i><br>
 				<i class="fas fa-map-marker-alt">
-					<small class="m-1 text-secondary"> Pune</small>
+					<small class="m-1 text-secondary"> <?php echo $user['location'];?></small>
 				</i><br><br>
 				<h6><small>2 Questions Asked</small></h6>
 				<h6><small>4 Answers</small><br></h6>

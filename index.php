@@ -1,7 +1,7 @@
 <?php
 session_unset();
 session_start();
-$con = new mysqli('localhost', 'root', '', 'alchemist');
+$con = new mysqli('localhost', 'root', '', 'quean');
 if ($con->connect_error) {
     die("Connection failed in login: " . $conn->connect_error);
 } 
@@ -11,8 +11,9 @@ if($_POST){
 	$sql="SELECT * FROM user WHERE email='$email' AND password = '$password'";
 	$result = $con->query($sql);
 	if ($result->num_rows > 0) {
-	    while($row = $result->fetch_assoc()) {
-		$_SESSION["name"] = $row['first_name']." ".$row['last_name'];
+	    while($user = $result->fetch_assoc()) {
+		$_SESSION['name'] = $user['first_name']." ".$user['last_name'];
+		$_SESSION['UID'] = $user['UID'];
    		}
 	}
 	else{
@@ -22,6 +23,7 @@ if($_POST){
 }
 if (!empty($_SESSION["name"])) {
 	$user_name = $_SESSION["name"];
+	$UID = $_SESSION["UID"];
 }
 $conn = new mysqli('localhost', 'root', '', 'quean');
 $sql = "SELECT * FROM questions";
@@ -88,7 +90,9 @@ if ($conn->connect_error){
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<div class="dropdown-item disabled"><?php echo $user_name;?></div>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="Profile.php">My Profile</a>
+							<?php 
+								echo'<a class="dropdown-item" href="Profile.php?uid='.$UID.'">My Profile</a>'
+							?>
 							<a class="dropdown-item" href="#">Settings</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="sign_out.php">Sign out</a>
