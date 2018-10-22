@@ -10,6 +10,9 @@ if (!empty($_SESSION["name"])) {
 	$sql="SELECT * FROM user WHERE UID='$UID'";
 	$result = $con->query($sql);
 	$user = $result->fetch_assoc();
+	$sql_que = "SELECT * FROM questions WHERE author = '$user_name'";
+	$questions = $con->query($sql_que);
+	$questions_count=mysqli_num_rows($questions);
 }
 ?>
 <!DOCTYPE html>
@@ -94,8 +97,12 @@ if (!empty($_SESSION["name"])) {
 				<i class="fas fa-map-marker-alt">
 					<small class="m-1 text-secondary"> <?php echo $user['location'];?></small>
 				</i><br><br>
-				<h6><small>2 Questions Asked</small></h6>
-				<h6><small>4 Answers</small><br></h6>
+				<h6>
+					<small>
+				<?php echo $questions_count;?> Questions Asked
+					</small>
+				</h6>
+				<h6><small>4 Questions Answered</small><br></h6>
 				<a href="#"><i class="text-secondary fab fa-github-square fa-2x"> </i></a>
 				<a href="#"><i class="text-secondary fab fa-linkedin fa-2x"> </i></a>
 				<a href="#"><i class="text-secondary fab fa-facebook fa-2x"> </i></a>
@@ -103,70 +110,62 @@ if (!empty($_SESSION["name"])) {
 			</div>
 		</div><br>
 		<h3><small>Your Questions</small></h3>
+		<?php
+if ($questions->num_rows > 0) {
+	while($question = $questions->fetch_assoc()) {?>
 		<div class="card mb-4 shadow-sm">
 			<div class="card-body">
-				<h4 class="card-title mb-1"><a class="text-body" href="answers.html">How do I use Git and GitHub?</a></h4>
+				<h4 class="card-title mb-1">
+					<?php echo'<a class="text-body" href="answers.php?question_title='. $question["title"] .'">'?>
+						<?php echo $question["title"];?>
+					</a>
+				</h4>
 				<p class="text-secondary mb-0">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum suscipit perspiciatis fuga laudantium dignissimos non recusandae id ducimus nobis dolores fugit, ipsa laboriosam eum exercitationem nesciunt laborum...
+				<?php echo $question["description"];?>
 				</p>
 				<div class="mb-2">
-					<a href="#" class="badge badge-info">git</a>
-					<a href="#" class="badge badge-info">github</a>
-					<a href="#" class="badge badge-info">vcs</a>
-				</div>
-				<p>
-					<a href="#" class="card-link"><small>Rajat Batoe</small></a>
+					<?php
+					if ($question["links"] !='') {
+						$links = explode(',', $question["links"]);
+						for ($i=0; $i < sizeof($links); $i++) { 
+							echo ' <a href="link_search.php?tag='. $links["$i"] .'" class="badge badge-info"> ' . $links["$i"] . '</a>';
+						}
+					}
+					?>
+					</div>
+					<a href="#" class="card-link"><small><?php echo  $question["author"];?></small></a>
 					<small class="text-secondary">asked on</small>
-					<small class="text-secondary">Sep 27, 2018</small>
+					<small class="text-secondary">
+					<?php 
+					$date = $question["q_date"];
+					$date = date('F d, Y', strtotime($date));
+					echo $date;
+					?>
+					</small>
 				</p>
 				<div class="d-flex text-secondary">
 					<div class="mr-3">
 						<i class="far fa-thumbs-up"></i>
-						<small>14</small>
+						<small><?php echo $question["likes"];?></small>
 					</div>
 					<div class="mr-3">
 						<i class="far fa-thumbs-down"></i>
-						<small>1</small>
+						<small><?php echo $question["dislikes"];?></small>
 					</div>
-					<div class="mr-3">
+<!-- 					<div class="mr-3">
 						<i class="far fa-comments"></i>
 						<a href="answers.html" class="text-secondary"><small>2 answers</small></a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
-		<div class="card mb-4 shadow-sm">
-			<div class="card-body">
-				<h4 class="card-title mb-1"><a class="text-body" href="answers.html">How to clone a GitHub repo?</a></h4>
-				<p class="text-secondary mb-0">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum suscipit perspiciatis fuga laudantium dignissimos non recusandae id ducimus nobis dolores fugit, ipsa laboriosam eum exercitationem nesciunt laborum...
-				</p>
-				<div class="mb-2">
-					<a href="#" class="badge badge-info">git</a>
-					<a href="#" class="badge badge-info">github</a>
-					<a href="#" class="badge badge-info">vcs</a>
-				</div>
-				<p>
-					<a href="#" class="card-link"><small>Rajat Batoe</small></a>
-					<small class="text-secondary">asked on</small>
-					<small class="text-secondary">Sep 29, 2018</small>
-				</p>
-				<div class="d-flex text-secondary">
-					<div class="mr-3">
-						<i class="far fa-thumbs-up"></i>
-						<small>14</small>
-					</div>
-					<div class="mr-3">
-						<i class="far fa-thumbs-down"></i>
-						<small>1</small>
-					</div>
-					<div class="mr-3">
-						<i class="far fa-comments"></i>
-						<a href="answers.html" class="text-secondary"><small>2 answers</small></a>
-					</div>
-				</div>
-			</div>
-		</div>
+	<?php }
+}
+else {
+	echo "<h4>No questions are asked</h4>";
+}
+$con->close();
+?>
 	</div>
 	</div>
 </body>
