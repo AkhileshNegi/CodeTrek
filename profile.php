@@ -13,6 +13,9 @@ if (!empty($_SESSION["name"])) {
 	$sql_que = "SELECT * FROM questions WHERE author = '$user_name'";
 	$questions = $con->query($sql_que);
 	$questions_count=mysqli_num_rows($questions);
+	$sql_ans = "SELECT * FROM answers WHERE author = '$user_name'";
+	$answers = $con->query($sql_ans);
+	$answer_count=mysqli_num_rows($answers);
 }
 ?>
 <!DOCTYPE html>
@@ -99,10 +102,14 @@ if (!empty($_SESSION["name"])) {
 				</i><br><br>
 				<h6>
 					<small>
-				<?php echo $questions_count;?> Questions Asked
+						<?php echo $questions_count;?> Questions Asked
 					</small>
 				</h6>
-				<h6><small>4 Questions Answered</small><br></h6>
+				<h6>
+					<small>
+						<?php echo $answer_count;?> Questions Answered
+					</small><br>
+				</h6>
 				<a href="#"><i class="text-secondary fab fa-github-square fa-2x"> </i></a>
 				<a href="#"><i class="text-secondary fab fa-linkedin fa-2x"> </i></a>
 				<a href="#"><i class="text-secondary fab fa-facebook fa-2x"> </i></a>
