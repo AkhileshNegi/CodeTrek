@@ -26,6 +26,27 @@ VALUES ('$title', '$description', '$tags','$user_name', CURRENT_TIMESTAMP)";
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
+		<?php
+	if (empty($user_name)) {?>
+	<div class="container d-flex mt-3 justify-content-center">
+			<div class="w-50 alert text-center border-success" role="alert">
+				<h4 class="alert-heading text-center">
+					<?php
+					echo "You're not Logged in";
+					?>
+				</h4>
+				<button class="btn btn-outline-success bg-light">
+					<a href="login.php" class="text-dark">Login now</a>
+				</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+	<?php
+	die();
+	}
+	?>
 	<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
 		<div class="container">
 			<a class="navbar-brand" href="index.php">CodeTrek Forum</a>

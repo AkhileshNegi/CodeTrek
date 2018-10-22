@@ -56,7 +56,8 @@ $sql = "INSERT INTO user (first_name, last_name, email, password)VALUES ('$fname
 				</ul>
 			</div>
 		</div>
-	</nav>			<div class="container d-flex mt-3 justify-content-center">
+	</nav>			
+	<div class="container d-flex mt-3 justify-content-center">
 		<div class="w-50 alert text-center border-success" role="alert">
 			<h4 class="alert-heading text-center">
 <?php
