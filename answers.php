@@ -131,7 +131,7 @@ echo $date;
 					<span id="like_count">14</span>
 				</div>
 				<div class="mr-4 dislike c-pointer">
-					<?php echo '<i class="fas fa-thumbs-down fa-lg" value="'. $qid . '" id="dislike"></i>';?>
+					<?php echo '<i class="fas fa-thumbs-down fa-lg" data-qid="'. $qid . '" id="dislike"></i>';?>
 					<span id="dislike_count">1</span>
 				</div>
 				<div class="mr-4">

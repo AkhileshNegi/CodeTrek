@@ -9,7 +9,8 @@ $(document).ready(function(){
     function decrease_dislike(){
         var dislike_count = $("#dislike_count").html();
         dislike_count--;
-        Alter_dislike(dislike_count);
+        var qid = $('#dislike').data('qid');
+        Alter_dislike(dislike_count,qid);
         $("#dislike_count").html(dislike_count);
     }
     $("#like").click(function(){
@@ -43,7 +44,8 @@ $(document).ready(function(){
             $("#like").removeClass("text-success");
             var dislike_count = $("#dislike_count").html();
         	dislike_count++;
-            Alter_dislike(dislike_count);
+            var qid = $('#dislike').data('qid');
+            Alter_dislike(dislike_count,qid);
         	$("#dislike_count").html(dislike_count);
         }
     });
@@ -59,12 +61,15 @@ $(document).ready(function(){
        cache: false,
      });
     }
-    function Alter_dislike(n)
+    function Alter_dislike(dislike_count,qid)
     {
       jQuery.ajax({
        type: "POST",
        url: "dislike_counter.php",
-       data: 'n='+n,
+       data: { 
+                dislike_count: +dislike_count, 
+                qid: +qid
+            },
        cache: false,
      });
     }
