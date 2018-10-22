@@ -53,7 +53,7 @@
           <h5>Login or</h5> 
           <button type="button" class="btn btn-outline-info" onclick="signup();">Sign up </button>
         </center><br>
-        <form action="home.php" method="POST">
+        <form action="index.php" method="POST">
           <div class="form-group text-left">
             <label for="email">Email:</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
@@ -68,5 +68,6 @@
       </div>
     </div>
   </div>
+  <script src="js/main2.js"></script>
 </body>
 </html>

@@ -1,10 +1,27 @@
 <?php
+$con = new mysqli('localhost', 'root', '', 'alchemist');
+if ($con->connect_error) {
+    die("Connection failed in login: " . $conn->connect_error);
+} 
+if($_POST){
+	$email = $_POST['email'];
+	$password = $_POST['password'];
+	$sql="SELECT * FROM user WHERE email='$email' AND password = '$password'";
+	$result = $con->query($sql);
+	if ($result->num_rows > 0) {
+	    while($row = $result->fetch_assoc()) {
+		session_unset();
+		session_start();
+		$_SESSION["name"] = $row['first_name']." ".$row['last_name'];
+   		}
+	}
+}
 $conn = new mysqli('localhost', 'root', '', 'quean');
+$sql = "SELECT * FROM questions";
+$questions = $conn->query($sql);
 if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT * FROM questions";
-$questions = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html>
