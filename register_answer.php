@@ -1,6 +1,8 @@
 <?php 
 $answers = $_POST['answer'];
 $qid = $_POST['qid'];
+session_start();
+$user_name = $_SESSION["name"];
 $conn = new mysqli('localhost', 'root', '', 'quean');
 if ($conn->connect_error){
 	die("Connection failed: " . $conn->connect_error);
@@ -42,7 +44,7 @@ $sql = "INSERT INTO answers (question_id, answer_text) VALUES ('$qid','$answers'
 							<i class="fa fa-cog"></i>
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<div class="dropdown-item disabled">Akhilesh Negi</div>
+							<div class="dropdown-item disabled"><?php echo $user_name;?></div>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#">My Profile</a>
 							<a class="dropdown-item" href="#">Settings</a>
