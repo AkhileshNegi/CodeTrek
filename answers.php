@@ -8,7 +8,7 @@ while($question = $questions->fetch_assoc()) {
 	$description = $question["description"];
 	$tags = $question["links"];
 	$qid = $question["qid"];
-	$q_date = $question["date"];
+	$q_date = $question["q_date"];
 	$author = $question["author"];	
 }
 session_start();

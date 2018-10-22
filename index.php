@@ -113,7 +113,7 @@ if ($questions->num_rows > 0) {
 					<small class="text-secondary">asked on</small>
 					<small class="text-secondary">
 					<?php 
-					$date = $question["date"];
+					$date = $question["q_date"];
 					$date = date('F d, Y', strtotime($date));
 					echo $date;
 					?>
