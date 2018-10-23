@@ -12,8 +12,8 @@ if($_POST){
 	$result = $con->query($sql);
 	if ($result->num_rows > 0) {
 	    while($user = $result->fetch_assoc()) {
-		$_SESSION['name'] = $user['first_name']." ".$user['last_name'];
-		$_SESSION['UID'] = $user['UID'];
+			$_SESSION['name'] = $user['first_name']." ".$user['last_name'];
+			$_SESSION['UID'] = $user['UID'];
    		}
 	}
 	else{

@@ -96,5 +96,8 @@ $conn->close();
 			</button>
 		</div>
 	</div>
+	<footer class="bg-light py-3 text-center mt-1">
+		<span class="text-primary"><i class="fas fa-code"></i> Developed at CodeTrek Tehri 2018</span>
+	</footer>
 </body>
 </html>

@@ -3,16 +3,8 @@ $title =  $_GET['question_title'];
 $conn = new mysqli('localhost', 'root', '', 'quean');
 $sql_question = "SELECT * FROM questions WHERE title = '$title' ";
 $questions = $conn->query($sql_question);
-while($question = $questions->fetch_assoc()) {
-	$title = $question["title"];
-	$description = $question["description"];
-	$tags = $question["links"];
+$question = $questions->fetch_assoc();
 	$qid = $question["qid"];
-	$q_date = $question["q_date"];
-	$author = $question["author"];
-	$likes = $question["likes"];
-	$dislikes = $question["dislikes"];	
-}
 session_start();
 if (!empty($_SESSION["name"])) {
 	$user_name = $_SESSION["name"];
@@ -97,18 +89,18 @@ mysqli_query($conn, $q_cmnt);
 		<div class="mb-5">
 			<h3>
 <?php 
-	echo $title;
+	echo $question["title"];
 ?>
 			</h3>
 			<p class="text-secondary lead">
 <?php 
-	echo $description;
+	echo $question["description"];
 ?>
 			</p>
 			<div class="mb-3">
 <?php
-if ($tags !='') {
-	$links = explode(',', $tags);
+if ($question["links"] !='') {
+	$links = explode(',', $question["links"]);
 	for ($i=0; $i < sizeof($links); $i++) { 
 		echo ' <a href="link_search.php?tag='. $links["$i"] .'" class="badge badge-info"> ' . $links["$i"] . '</a>';
 	}
@@ -118,13 +110,13 @@ if ($tags !='') {
 			<p>
 				<a href="#" class="card-link">
 					<span>
-						<?php echo $author;?>
+						<?php echo $question["author"];?>
 					</span>
 				</a>
 				<span class="text-secondary">asked on</span>
 				<span class="text-secondary">
 <?php	
-$date = date('F d, Y', strtotime($q_date));
+$date = date('F d, Y', strtotime($question["q_date"]));
 echo $date;
 ?>
 				</span>
@@ -132,11 +124,11 @@ echo $date;
 			<div class="d-flex text-secondary">
 				<div class="mr-4 like c-pointer">
 					<?php echo '<i class="fas fa-thumbs-up fa-lg" data-qid="'. $qid . '" id="like" ></i>';?>
-					<span id="like_count"><?php echo $likes;?></span>
+					<span id="like_count"><?php echo $question["likes"];?></span>
 				</div>
 				<div class="mr-4 dislike c-pointer">
 					<?php echo '<i class="fas fa-thumbs-down fa-lg" data-qid="'. $qid . '" id="dislike"></i>';?>
-					<span id="dislike_count"><?php echo $dislikes;?></span>
+					<span id="dislike_count"><?php echo $question["dislikes"];?></span>
 				</div>
 				<div class="mr-4">
 					<i class="fas fa-comments fa-lg"></i>
